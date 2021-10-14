@@ -1,6 +1,6 @@
 {
   "name": "screenplay-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A modern Typescript, Foutain screenplay parser. Convert Final Draft (.fdx) files to Fountain, and then parse Fountain markdown to HTML.",
   "main": "dist/index.js",
   "scripts": {
