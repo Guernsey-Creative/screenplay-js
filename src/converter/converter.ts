@@ -1,6 +1,7 @@
 import { FinalDraftParser } from './fdx-parser'
 try {
   var jsdom = require("jsdom");
+  var jsdomVersion = require('jsdom/package.json').version
   var { JSDOM } = jsdom;
   var { window } = new JSDOM();
   var domParser = new window.DOMParser();
@@ -20,21 +21,29 @@ class Converter {
    * @see https://fountain.io/syntax
    */
   convertToFountain(script: string): string {
-    try {
-      const xmlDocument = domParser.parseFromString(script, "text/xml");
+    if (jsdomVersion !== "18.0.0") {
+      jsdom = null
+    }
 
-      let fountainScript = "";
+    if (jsdom) {
+      try {
+        const xmlDocument = domParser.parseFromString(script, "text/xml");
 
-      // Get title tag
-      fountainScript += FinalDraftParser.getTitleFromXML(xmlDocument);
+        let fountainScript = "";
 
-      // Get content
-      fountainScript += FinalDraftParser.getContentFromXML(xmlDocument);
+        // Get title tag
+        fountainScript += FinalDraftParser.getTitleFromXML(xmlDocument);
 
-      return fountainScript;
-    } catch (error) {
-      console.warn("Could not parse to fountain. Please try another file.");
-      return "Could not parse to fountain. Please try another file.";
+        // Get content
+        fountainScript += FinalDraftParser.getContentFromXML(xmlDocument);
+
+        return fountainScript;
+      } catch (error) {
+        console.warn("Could not parse to fountain. Please try another file.");
+        return "Could not parse to fountain. Please try another file.";
+      }
+    } else {
+      console.warn("The npm package `jsdom` could not be found. Please install if you intend to use the ScriptConverter class.")
     }
   }
 }
