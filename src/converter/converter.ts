@@ -1,14 +1,4 @@
 import { FinalDraftParser } from './fdx-parser'
-try {
-  var jsdom = require("jsdom");
-  var jsdomVersion = require('jsdom/package.json').version
-  var { JSDOM } = jsdom;
-  var { window } = new JSDOM();
-  var domParser = new window.DOMParser();
-} catch (error) {
-  jsdom = null
-  console.warn("The npm package `jsdom` could not be found. Please install if you intend to use the ScriptConverter class.")
-}
 
 /**
  * A class object that holds various screenplay format converters.
@@ -21,6 +11,17 @@ class Converter {
    * @see https://fountain.io/syntax
    */
   convertToFountain(script: string): string {
+    try {
+      var jsdom = require("jsdom");
+      var jsdomVersion = require('jsdom/package.json').version
+      var { JSDOM } = jsdom;
+      var { window } = new JSDOM();
+      var domParser = new window.DOMParser();
+    } catch (error) {
+      jsdom = null
+      console.warn("The npm package `jsdom` could not be found. Please install if you intend to use the ScriptConverter class.")
+    }
+
     if (jsdomVersion !== "18.0.0") {
       jsdom = null
     }
