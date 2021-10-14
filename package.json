@@ -24,7 +24,6 @@
   "author": "Aaron Guernsey",
   "license": "MIT",
   "dependencies": {
-    "@xmldom/xmldom": "^0.7.5",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
