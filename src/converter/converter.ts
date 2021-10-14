@@ -1,8 +1,6 @@
 import { FinalDraftParser } from './fdx-parser'
-var jsdom
 try {
-  jsdom = require("jsdom");
-  var jsdomVersion = require('jsdom/package.json').version
+  var jsdom = require("jsdom");
   var { JSDOM } = jsdom;
   var { window } = new JSDOM();
   var domParser = new window.DOMParser();
@@ -22,10 +20,6 @@ class Converter {
    * @see https://fountain.io/syntax
    */
   convertToFountain(script: string): string {
-    if (jsdomVersion !== "18.0.0") {
-      jsdom = null
-    }
-
     if (jsdom) {
       try {
         const xmlDocument = domParser.parseFromString(script, "text/xml");
@@ -43,8 +37,6 @@ class Converter {
         console.warn("Could not parse to fountain. Please try another file.");
         return "Could not parse to fountain. Please try another file.";
       }
-    } else {
-      console.warn("The npm package `jsdom` could not be found. Please install if you intend to use the ScriptConverter class.")
     }
   }
 }

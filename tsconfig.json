@@ -15,6 +15,7 @@
   "exclude": [
     "node_modules",
     "samples",
-    "examples"
+    "examples",
+    "src/converter"
   ]
 }
