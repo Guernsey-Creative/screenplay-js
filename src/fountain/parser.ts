@@ -1,6 +1,7 @@
-import { IToken, tokenizer } from './tokenizer';
+import { tokenizer } from './tokenizer';
 import { sections } from './sections';
 import { v4 as uuid } from 'uuid';
+import { IParserOptions, IScriptJSON } from '../interfaces';
 
 /**
  * It's strongly recommended to use Normal because it comes closest to the 1-minute-per-page rule
@@ -16,39 +17,6 @@ const LINES_PER_PAGE = {
   very_tight: 64,
 }
 
-export interface IScriptPage {
-  _id: string;
-  html: string;
-}
-
-export interface IParserOptions {
-  paginate: boolean,
-  lines_per_page: 'none' | 'loose' | 'normal' | 'tight' | 'very_tight',
-  script_html: boolean,
-  script_html_array: boolean,
-  notes: boolean,
-  draft_date: boolean
-  boneyard: boolean
-}
-
-export interface ScriptJSON {
-  title: String,
-  credit: String,
-  authors: string[],
-  source: String,
-  notes: String,
-  draft_date: String,
-  date: String,
-  contact: String,
-  copyright: String,
-  scenes: string[],
-  title_page_html: String,
-  script_html: String,
-  script_pages: IScriptPage[],
-  script_pages_html: string[][],
-  script_html_array: string[]
-}
-
 const defaultOptions: IParserOptions = {
   paginate: true,
   lines_per_page: "loose",
@@ -57,6 +25,7 @@ const defaultOptions: IParserOptions = {
   notes: true,
   draft_date: true,
   boneyard: true,
+  tokens: false
 };
 
 class Parser {
@@ -79,13 +48,13 @@ class Parser {
     }
 
     // Default options
-    let options = { ..._options };
+    let options = { ...this.options, ..._options };
 
     let tokens = tokenizer.tokenize(script),
       title_page_html: any[] = [],
       script_html: any[] = [];
 
-    const output: Partial<ScriptJSON> = {
+    const output: IScriptJSON = {
       title: '',
       credit: '',
       authors: [],
@@ -244,6 +213,10 @@ class Parser {
       output.script_pages = pages
       output.script_pages_html = pages_html
     }
+
+    if (options.tokens) {
+      output.tokens = tokens;
+    };
 
     return output;
   }

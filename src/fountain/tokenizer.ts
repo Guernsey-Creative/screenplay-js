@@ -1,11 +1,5 @@
+import { IToken } from '../interfaces';
 import { sections } from './sections';
-
-export interface IToken {
-  type?: string,
-  text?: string,
-  scene_number?: number,
-  depth?: number
-}
 
 class ScriptTokenizer {
   /**
