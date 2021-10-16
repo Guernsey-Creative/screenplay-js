@@ -18,7 +18,7 @@ yarn install screenplay-js
 
 ## How to Use
 
-ScreenplayJS parses a string and returns a [ScriptJSON object](#script-json).
+ScreenplayJS parses a string and returns a [ScriptJSON object](#scriptjson).
 
 ```
 import { FountainParser } from "screenplay-js";
@@ -30,7 +30,7 @@ const screenplay_string = yourFileReaderFunction(screenplay_file)
 const script_json = FountainParser.parse(screenplay_string);
 ```
 
-> For other use cases read the [Use Cases and Examples section](#use-cases-and-examples).
+> For other use cases read the [Use Cases and Examples section](#examples-and-use-cases).
 
 ## Parser Options
 
@@ -151,7 +151,16 @@ IParserOptions {
 
 ## Examples and Use Cases
 
-For additional examples, view the examples directory at the root of this project. More examples will be added in the future!
+### GuernseyBros
+
+ScreenplayJS is used in the [GuernseyBros](https://www.guernseybros.com/) project. You can read their latest sketches, 
+spec scripts, or feature length screenplays on their website. GuernseyBros uses VueJS, Nuxt, and ScreenplayJS to parse 
+Fountain scripts into HTML, providing mobile responsive reading for their scripts and screenplays.
+
+
+### Additional Examples
+
+More examples will be added in the future!
 
 ## License
 
