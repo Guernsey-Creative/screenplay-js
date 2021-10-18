@@ -154,13 +154,22 @@ IParserOptions {
 ### GuernseyBros
 
 ScreenplayJS is used in the [GuernseyBros](https://www.guernseybros.com/) project. You can read their latest sketches, 
-spec scripts, or feature length screenplays on their website. GuernseyBros uses VueJS, Nuxt, and ScreenplayJS to parse 
+spec scripts, or feature length screenplays on their website. 
+
+GuernseyBros uses VueJS, Nuxt, and ScreenplayJS to parse 
 Fountain scripts into HTML, providing mobile responsive reading for their scripts and screenplays.
 
+### Uploading and Converting a FDX File to Fountain
+
+An example of how to upload a Final Draft (FDX) file to Fountain screenplay format can be found in the 
+exaples directory under the [fdx-to-fountain sub-directory](https://github.com/Guernsey-Creative/screenplay-js/tree/main/examples/fdx-to-fountain).
+
+> This example is a TypeScript example written in VueJS. Feel free to copy-and-paste or convert it to the language
+> within your project. If you would like to support and add to the documentation, add a PR with an updated example!
 
 ### Additional Examples
 
-More examples will be added in the future!
+More examples will be added in the future. Check them out in the [example directory](https://github.com/Guernsey-Creative/screenplay-js/tree/main/examples)!
 
 ## License
 
