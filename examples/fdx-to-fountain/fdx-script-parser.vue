@@ -15,8 +15,8 @@
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
+  import { FountainParser } from "screenplay-js";
   import { ScriptConverter } from ".";
-  import { FountainParser } from "../../src/screenplay-js";
 
   @Component
   export default class AccountScripts extends Vue {
