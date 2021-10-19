@@ -30,7 +30,7 @@ const script_json = FountainParser.parse(screenplay_string);
 
 > For an example of reading a FDX file and other use cases read the [Use Cases and Examples section](#examples-and-use-cases).
 
-## Parser Options
+## Updating Configuration
 
 By default, ScreenplayJS parses Fountain tokens such as notes, boneyard, and draft date. It also omits returning a list of tokens. You can enable or disable parsing options in the global config or by passing in parameters to the `parse` function.
 
@@ -67,20 +67,18 @@ const script_json = FountainParser.parse(screenplay_string, your_options);
 **Note**: It is acceptable to pass in a partial options object. ScreenplayJS will merge your
 options in with the default config options.
 
-Example of the default config:
+## Default Config Options
 
-```
-defaultOptions: IParserOptions = {
-  paginate: true,
-  lines_per_page: "loose",
-  script_html: false,
-  script_html_array: false,
-  notes: true,
-  draft_date: true,
-  boneyard: true,
-  tokens: false
-}
-```
+| Option | Required | Default | Type | Description |
+|--------|--------|--------|--------|--------|
+| paginate | false | true | boolean | Whether to paginate the HTML results |
+| lines_per_page | false | "loose" | string | How many approximate lines-per-page, [via FinalDraft](https://kb.finaldraft.com/s/article/How-many-lines-per-page-does-Final-Draft-write-and-what-are-my-line-spacing-options) |
+| script_html | false | false | boolean | Whether to add a HTML string to the returned [ScriptJSON object](#scriptjson) |
+| script_html_array | false | false | boolean | Whether to add an array of HTML strings to the returned [ScriptJSON object](#scriptjson) |
+| notes | false | true | boolean | Whether to parse note tokens from a Fountain file |
+| draft_date | false | true | boolean | Whether to parse the draft date token from a Fountain file |
+| boneyard | false | true | boolean | Whether to parse boneyard tokens from a Fountain file |
+| tokens | false | false | boolean | Whether to add a list of tokens in returned [ScriptJSON object](#scriptjson) |
 
 ## Outputs and Interfaces
 
