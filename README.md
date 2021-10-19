@@ -4,8 +4,6 @@ ScreenplayJS is a [Fountain](https://fountain.io/) screenplay parser based on [f
 
 Have a screenplay written in Fountain and need it converted to an HTML format? ScreenplayJS can do just that. 
 
-> ScreenplayJS was written in TypeScript and includes typings by default.
-
 ## Installation
 
 ```
@@ -13,12 +11,12 @@ npm install screenplay-js
 ```
 
 ```
-yarn install screenplay-js
+yarn add screenplay-js
 ```
 
 ## How to Use
 
-ScreenplayJS parses a string and returns a [ScriptJSON object](#scriptjson).
+After parsing a screenplay file into text, ScreenplayJS can parse a string and return a [ScriptJSON object](#scriptjson).
 
 ```
 import { FountainParser } from "screenplay-js";
@@ -30,11 +28,11 @@ const screenplay_string = yourFileReaderFunction(screenplay_file)
 const script_json = FountainParser.parse(screenplay_string);
 ```
 
-> For other use cases read the [Use Cases and Examples section](#examples-and-use-cases).
+> For an example of reading a FDX file and other use cases read the [Use Cases and Examples section](#examples-and-use-cases).
 
 ## Parser Options
 
-By default, ScreenplayJS parses Fountain tokens such as notes, boneyard, and draft date. It also omits returning a list of tokens. You can enable or disable parsing options in the global config or passing in parameters to the `parse` function.
+By default, ScreenplayJS parses Fountain tokens such as notes, boneyard, and draft date. It also omits returning a list of tokens. You can enable or disable parsing options in the global config or by passing in parameters to the `parse` function.
 
 Globally enabling token parsing:
 
@@ -52,6 +50,7 @@ const script_json = FountainParser.parse(screenplay_string);
 ```
 
 Enabling token parsing on the function:
+
 ```
 import { FountainParser } from "screenplay-js";
 
@@ -65,10 +64,10 @@ const your_options = { tokens: true }
 const script_json = FountainParser.parse(screenplay_string, your_options);
 ```
 
-> Note: There is no need to pass in the full options object. ScreenplayJS will merge your
-> options in with the default config options.
+**Note**: It is acceptable to pass in a partial options object. ScreenplayJS will merge your
+options in with the default config options.
 
-The default options object looks like:
+Example of the default config:
 
 ```
 defaultOptions: IParserOptions = {
@@ -85,8 +84,11 @@ defaultOptions: IParserOptions = {
 
 ## Outputs and Interfaces
 
-If you are writing in TypeScript, then all of ScreenplayJS interfaces can be imported
-and extended in your project and for your use-cases.
+ScreenplayJS has various interfaces that can be imported and extended within your project.
+
+Example of importing the `IScriptJSON` interface.
+
+> For more about Interfaces read [TypeScript's documentation](https://www.typescriptlang.org/docs/handbook/interfaces.html)
 
 ```
 import { IScriptJSON } from 'screenplay-js'
@@ -157,7 +159,7 @@ ScreenplayJS is used in the [GuernseyBros](https://www.guernseybros.com/) projec
 spec scripts, or feature length screenplays on their website. 
 
 GuernseyBros uses VueJS, Nuxt, and ScreenplayJS to parse 
-Fountain scripts into HTML, providing mobile responsive reading for their scripts and screenplays.
+Fountain scripts into HTML, providing mobile responsive scripts and screenplays.
 
 ### Uploading and Converting a FDX File to Fountain
 
@@ -165,7 +167,7 @@ An example of how to upload a Final Draft (FDX) file to Fountain screenplay form
 exaples directory under the [fdx-to-fountain sub-directory](https://github.com/Guernsey-Creative/screenplay-js/tree/main/examples/fdx-to-fountain).
 
 > This example is a TypeScript example written in VueJS. Feel free to copy-and-paste or convert it to the language
-> within your project. If you would like to support and add to the documentation, add a PR with an updated example!
+> of your choosing.
 
 ### Additional Examples
 
