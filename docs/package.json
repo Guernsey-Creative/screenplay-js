@@ -1,0 +1,19 @@
+{
+  "name": "screenplay-js",
+  "version": "0.0.1",
+  "description": "A modern Typescript, Foutain screenplay parser. Convert Final Draft (.fdx) files to Fountain, and then parse Fountain markdown to HTML.",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "https://github.com/Guernsey-Creative/screenplay-js/screenplay-js",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}

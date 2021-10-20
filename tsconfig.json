@@ -16,6 +16,7 @@
     "node_modules",
     "samples",
     "examples",
-    "src/converter"
+    "src/converter",
+    "docs"
   ]
 }
