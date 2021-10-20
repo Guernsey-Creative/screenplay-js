@@ -4,6 +4,9 @@ ScreenplayJS is a [Fountain](https://fountain.io/) screenplay parser based on [f
 
 Have a screenplay written in Fountain and need it converted to an HTML format? ScreenplayJS can do just that. 
 
+## Documentation
+For more detailed info, check out the [documentation](https://friendly-brahmagupta-74d600.netlify.app/).
+
 ## Installation
 
 ```
