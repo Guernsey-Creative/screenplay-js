@@ -40,6 +40,10 @@ module.exports = {
         text: "Get Started",
         link: "/guide/",
       },
+      {
+        text: "Github",
+        link: "https://github.com/Guernsey-Creative/screenplay-js",
+      },
     ],
     sidebar: {
       "/guide/": [
