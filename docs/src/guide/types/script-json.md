@@ -1,7 +1,7 @@
 # ScriptJSON
 
 | Field | Type | Description |
-|--------|--------|--------|--------|--------|
+|--------|--------|--------|
 | **title** | `string` | Title of the script. |
 | **credit** | `string` | Attribution of the script, i.e. 'Written by'. |
 | **authors** | `Array<string>` | Authors of the script |
