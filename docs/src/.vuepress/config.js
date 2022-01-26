@@ -62,10 +62,10 @@ module.exports = {
           title: "Types",
           collapsable: false,
           children: [
-            "typescript/",
-            "typescript/script-json",
-            "typescript/script-page",
-            "typescript/token",
+            "types/",
+            "types/script-json",
+            "types/script-page",
+            "types/token",
           ],
         },
         {
